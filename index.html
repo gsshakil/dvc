@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bento Hardware - Smart Devices for Smarter Commerce</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1A1A1A',
+                        accent: '#4338CA',
+                        secondary: '#F59E0B',
+                        tertiary: '#10B981',
+                        graphite: '#374151',
+                        silver: '#E5E7EB',
+                        steel: '#6B7280'
+                    },
+                    fontFamily: { 'inter': ['Inter', 'sans-serif'], 'poppins': ['Poppins', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .industrial-bg { background: linear-gradient(135deg, #1A1A1A 0%, #374151 40%, #4338CA 100%); }
+        .hardware-card { backdrop-filter: blur(15px); background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(67, 56, 202, 0.2); transition: all 0.4s ease; }
+        .hardware-card:hover { transform: translateY(-15px) scale(1.02); box-shadow: 0 25px 50px rgba(67, 56, 202, 0.4); }
+        .device-float { animation: deviceFloat 6s ease-in-out infinite; }
+        @keyframes deviceFloat { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(2deg); } }
+        .text-gradient { background: linear-gradient(135deg, #4338CA, #F59E0B, #10B981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .steel-mesh { background-image: radial-gradient(circle at 25% 25%, rgba(67, 56, 202, 0.1) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(245, 158, 11, 0.1) 0%, transparent 50%); }
+        .glow-accent { filter: drop-shadow(0 0 20px rgba(67, 56, 202, 0.5)); }
+        .product-render { background: linear-gradient(145deg, #f8fafc, #e2e8f0); border-radius: 20px; box-shadow: 20px 20px 40px rgba(0,0,0,0.1), -20px -20px 40px rgba(255,255,255,0.8); }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-lg border-b border-gray-200/50 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center shadow-lg glow-accent">
+                            <i class="fas fa-microchip text-white text-lg"></i>
+                        </div>
+                        <span class="ml-3 text-2xl font-poppins font-bold text-primary">Bento</span>
+                        <div class="ml-3 bg-gradient-to-r from-accent to-secondary text-white px-2 py-1 rounded-full text-xs font-bold">
+                            HARDWARE
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#devices" class="text-gray-700 hover:text-accent transition-colors font-medium">Devices</a>
+                    <a href="#integration" class="text-gray-700 hover:text-accent transition-colors font-medium">Integration</a>
+                    <a href="#showcase" class="text-gray-700 hover:text-accent transition-colors font-medium">Use Cases</a>
+                    <a href="#partner" class="bg-gradient-to-r from-accent to-secondary text-white px-6 py-2 rounded-2xl hover:shadow-lg transition-all font-bold">
+                        Request Partnership
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-700 hover:text-accent">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="industrial-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 steel-mesh opacity-40"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Content -->
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-poppins font-bold text-white mb-6 leading-tight">
+                        Hardware That Moves<br>
+                        <span class="text-gradient">With Your Business</span>
+                    </h1>
+                    <p class="text-xl sm:text-2xl text-gray-200 mb-12 max-w-2xl">
+                        Modern, modular, and made for connected commerce. Bento's hardware suite adapts to every sales counter, delivery station, or retail floor.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a href="#devices" class="bg-gradient-to-r from-accent to-secondary text-white px-8 py-4 rounded-2xl font-bold hover:shadow-lg hover:shadow-accent/30 transition-all transform hover:scale-105 shadow-xl">
+                            <i class="fas fa-desktop mr-2"></i>
+                            Explore Devices
+                        </a>
+                        <a href="#partner" class="border-2 border-white text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white hover:text-primary transition-all transform hover:scale-105">
+                            <i class="fas fa-handshake mr-2"></i>
+                            Request Partnership
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Hardware Showcase -->
+                <div data-aos="fade-left" data-aos-duration="1000" class="relative">
+                    <!-- Main POS Terminal -->
+                    <div class="relative mx-auto w-96 h-96">
+                        <!-- POS Terminal Mockup -->
+                        <div class="absolute inset-8 product-render device-float">
+                            <div class="w-full h-full bg-gradient-to-br from-gray-900 to-gray-700 rounded-2xl shadow-2xl relative overflow-hidden">
+                                <!-- Screen -->
+                                <div class="absolute top-6 left-6 right-6 bottom-20 bg-accent rounded-xl overflow-hidden">
+                                    <div class="w-full h-full bg-gradient-to-br from-accent to-secondary relative">
+                                        <!-- Screen UI Elements -->
+                                        <div class="absolute top-4 left-4 right-4">
+                                            <div class="bg-white/20 rounded-lg p-3 mb-3">
+                                                <div class="flex items-center space-x-3">
+                                                    <div class="w-8 h-8 bg-white/30 rounded-full"></div>
+                                                    <div class="flex-1">
+                                                        <div class="h-2 bg-white/30 rounded mb-1"></div>
+                                                        <div class="h-2 bg-white/20 rounded w-2/3"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="grid grid-cols-3 gap-2">
+                                                <div class="h-12 bg-white/20 rounded-lg"></div>
+                                                <div class="h-12 bg-white/30 rounded-lg"></div>
+                                                <div class="h-12 bg-white/20 rounded-lg"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Bento Logo on screen -->
+                                        <div class="absolute bottom-4 left-4 right-4">
+                                            <div class="text-center">
+                                                <div class="w-6 h-6 bg-white rounded mx-auto mb-1"></div>
+                                                <p class="text-white text-xs font-bold">BENTO POS</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Base -->
+                                <div class="absolute bottom-6 left-6 right-6 h-12 bg-gradient-to-r from-gray-800 to-gray-600 rounded-lg"></div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Accessories -->
+                        <div class="absolute -top-4 -right-8 w-24 h-24 product-render device-float" style="animation-delay: 2s;">
+                            <div class="w-full h-full bg-gradient-to-br from-white to-gray-100 rounded-xl shadow-lg flex items-center justify-center">
+                                <i class="fas fa-credit-card text-accent text-xl"></i>
+                            </div>
+                            <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
+                                <span class="text-xs font-medium text-gray-700">Card Reader</span>
+                            </div>
+                        </div>
+
+                        <div class="absolute -bottom-8 -left-4 w-20 h-16 product-render device-float" style="animation-delay: 4s;">
+                            <div class="w-full h-full bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg flex items-center justify-center">
+                                <i class="fas fa-print text-secondary text-lg"></i>
+                            </div>
+                            <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
+                                <span class="text-xs font-medium text-gray-700">Printer</span>
+                            </div>
+                        </div>
+
+                        <div class="absolute top-16 -left-12 w-16 h-20 product-render device-float" style="animation-delay: 6s;">
+                            <div class="w-full h-full bg-gradient-to-br from-gray-900 to-gray-700 rounded-lg shadow-lg flex items-center justify-center">
+                                <i class="fas fa-barcode text-tertiary text-lg"></i>
+                            </div>
+                            <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
+                                <span class="text-xs font-medium text-gray-700">Scanner</span>
+                            </div>
+                        </div>
+
+                        <!-- Connection Lines -->
+                        <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400">
+                            <defs>
+                                <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#4338CA;stop-opacity:0.6" />
+                                    <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:0.6" />
+                                </linearGradient>
+                            </defs>
+                            
+                            <!-- Animated connection lines -->
+                            <path d="M200,200 Q250,150 320,80" stroke="url(#connectionGradient)" stroke-width="2" fill="none" stroke-dasharray="10,5" opacity="0.7">
+                                <animate attributeName="stroke-dashoffset" values="0;-50" dur="3s" repeatCount="indefinite"/>
+                            </path>
+                            <path d="M200,200 Q150,300 80,320" stroke="url(#connectionGradient)" stroke-width="2" fill="none" stroke-dasharray="10,5" opacity="0.7">
+                                <animate attributeName="stroke-dashoffset" values="0;-50" dur="4s" repeatCount="indefinite"/>
+                            </path>
+                            <path d="M200,200 Q100,180 60,120" stroke="url(#connectionGradient)" stroke-width="2" fill="none" stroke-dasharray="10,5" opacity="0.7">
+                                <animate attributeName="stroke-dashoffset" values="0;-50" dur="5s" repeatCount="indefinite"/>
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hardware Lineup Section -->
+    <section id="devices" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 data-aos="fade-up" class="text-4xl sm:text-5xl font-poppins font-bold text-primary mb-6">
+                    Complete Point of Sale, <span class="text-gradient">From Counter to Delivery</span>
+                </h2>
+                <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-steel max-w-4xl mx-auto">
+                    Professional hardware designed for every aspect of modern commerce.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="400">
+                <!-- Smart POS Terminal -->
+                <div class="hardware-card p-8 rounded-3xl group">
+                    <div class="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <div class="w-32 h-24 bg-gradient-to-br from-gray-900 to-gray-700 rounded-xl relative">
+                            <div class="absolute inset-2 bg-accent rounded-lg flex items-center justify-center">
+                                <i class="fas fa-desktop text-white text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-poppins font-bold text-primary mb-3">🖥️ Smart POS Terminal</h3>
+                    <p class="text-steel leading-relaxed">For countertop retail, foodservice, salons<br>Full-featured touchscreen with cloud sync</p>
+                </div>
+
+                <!-- Handheld POS -->
+                <div class="hardware-card p-8 rounded-3xl group">
+                    <div class="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <div class="w-16 h-32 bg-gradient-to-br from-gray-900 to-gray-700 rounded-xl relative">
+                            <div class="absolute inset-2 bg-secondary rounded-lg flex items-center justify-center">
+                                <i class="fas fa-mobile-alt text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-poppins font-bold text-primary mb-3">📱 Handheld POS</h3>
+                    <p class="text-steel leading-relaxed">On-the-go checkout, delivery partners<br>Portable with long battery life</p>
+                </div>
+
+                <!-- Receipt Printer -->
+                <div class="hardware-card p-8 rounded-3xl group">
+                    <div class="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <div class="w-24 h-16 bg-gradient-to-br from-white to-gray-100 rounded-lg relative">
+                            <div class="absolute top-2 left-2 right-2 h-8 bg-tertiary rounded flex items-center justify-center">
+                                <i class="fas fa-print text-white text-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-poppins font-bold text-primary mb-3">🖨️ Thermal Receipt Printer</h3>
+                    <p class="text-steel leading-relaxed">Seamless printing, low-maintenance<br>High-speed thermal technology</p>
+                </div>
+
+                <!-- Barcode Scanner -->
+                <div class="hardware-card p-8 rounded-3xl group">
+                    <div class="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <div class="w-12 h-28 bg-gradient-to-br from-gray-900 to-gray-700 rounded-xl relative">
+                            <div class="absolute top-4 left-2 right-2 h-12 bg-accent rounded flex items-center justify-center">
+                                <i class="fas fa-barcode text-white text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-poppins font-bold text-primary mb-3">📦 Barcode Scanner</h3>
+                    <p class="text-steel leading-relaxed">Retail, warehouse, inventory<br>2D scanning with wireless connectivity</p>
+                </div>
+
+                <!-- Tap-to-Pay Reader -->
+                <div class="hardware-card p-8 rounded-3xl group">
+                    <div class="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <div class="w-20 h-16 bg-gradient-to-br from-white to-gray-100 rounded-xl relative">
+                            <div class="absolute inset-2 bg-secondary rounded-lg flex items-center justify-center">
+                                <i class="fas fa-credit-card text-white text-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-poppins font-bold text-primary mb-3">💳 Tap-to-Pay Reader</h3>
+                    <p class="text-steel leading-relaxed">Contactless & chip transactions<br>EMV certified with NFC support</p>
+                </div>
+
+                <!-- Customer Display -->
+                <div class="hardware-card p-8 rounded-3xl group">
+                    <div class="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <div class="w-28 h-20 bg-gradient-to-br from-gray-900 to-gray-700 rounded-xl relative">
+                            <div class="absolute inset-2 bg-tertiary rounded-lg flex items-center justify-center">
+                                <i class="fas fa-eye text-white text-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-poppins font-bold text-primary mb-3">🧾 Customer Display</h3>
+                    <p class="text-steel leading-relaxed">Transparent checkout experience<br>Real-time transaction visibility</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Bento Hardware Section -->
+    <section id="integration" class="py-24 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 data-aos="fade-up" class="text-4xl sm:text-5xl font-poppins font-bold text-primary mb-6">
+                    Designed for Durability. <span class="text-gradient">Built for Bento.</span>
+                </h2>
+                <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-steel max-w-3xl mx-auto">
+                    Hardware and software working in perfect harmony to power your business.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up" data-aos-delay="400">
+                <!-- Plug & Play Integration -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-plug text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-poppins font-semibold text-primary mb-3">Plug & Play Integration</h3>
+                    <p class="text-steel text-sm leading-relaxed">Works seamlessly with Bento POS and apps. Zero configuration required.</p>
+                </div>
+
+                <!-- Cloud-Synced -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-cloud text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-poppins font-semibold text-primary mb-3">Cloud-Synced</h3>
+                    <p class="text-steel text-sm leading-relaxed">Hardware + software = unified commerce across all locations.</p>
+                </div>
+
+                <!-- Remote Management -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-satellite-dish text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-poppins font-semibold text-primary mb-3">Remote Management</h3>
+                    <p class="text-steel text-sm leading-relaxed">Control settings, updates, and performance from anywhere.</p>
+                </div>
+
+                <!-- Secure by Design -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-shield-alt text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-poppins font-semibold text-primary mb-3">Secure by Design</h3>
+                    <p class="text-steel text-sm leading-relaxed">Encrypted transactions and locked environments for total security.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Case Showcase -->
+    <section id="showcase" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 data-aos="fade-up" class="text-4xl sm:text-5xl font-poppins font-bold text-primary mb-6">
+                    Adaptable to Any <span class="text-gradient">Business Environment</span>
+                </h2>
+                <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-steel max-w-4xl mx-auto">
+                    From intimate boutiques to bustling restaurants, Bento hardware fits seamlessly into your workflow.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="400">
+                <!-- Retail Checkout -->
+                <div class="relative group">
+                    <div class="w-full h-64 bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl relative overflow-hidden">
+                        <div class="absolute inset-6 flex items-end justify-center">
+                            <!-- Store counter scene -->
+                            <div class="relative">
+                                <div class="w-20 h-16 bg-gradient-to-br from-gray-900 to-gray-700 rounded-lg mb-2">
+                                    <div class="absolute inset-2 bg-accent rounded"></div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-4 h-4 bg-accent rounded-full mx-auto mb-1"></div>
+                                    <p class="text-xs text-gray-600">POS Terminal</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                            <span class="text-sm font-semibold text-accent">🛍️ Retail</span>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-poppins font-semibold text-primary mt-4 group-hover:text-accent transition-colors">Retail Checkout</h3>
+                    <p class="text-steel text-sm">Perfect for clothing stores, electronics, and general retail</p>
+                </div>
+
+                <!-- Restaurant Counter -->
+                <div class="relative group">
+                    <div class="w-full h-64 bg-gradient-to-br from-orange-50 to-orange-100 rounded-3xl relative overflow-hidden">
+                        <div class="absolute inset-6 flex items-end justify-center">
+                            <div class="relative">
+                                <div class="w-20 h-16 bg-gradient-to-br from-gray-900 to-gray-700 rounded-lg mb-2">
+                                    <div class="absolute inset-2 bg-secondary rounded"></div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-4 h-4 bg-secondary rounded-full mx-auto mb-1"></div>
+                                    <p class="text-xs text-gray-600">Kitchen Display</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                            <span class="text-sm font-semibold text-secondary">🍽️ Restaurant</span>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-poppins font-semibold text-primary mt-4 group-hover:text-secondary transition-colors">Restaurant Counter</h3>
+                    <p class="text-steel text-sm">Streamlined for fast-paced food service environments</p>
+                </div>
+
+                <!-- Delivery Hub -->
+                <div class="relative group">
+                    <div class="w-full h-64 bg-gradient-to-br from-green-50 to-green-100 rounded-3xl relative overflow-hidden">
+                        <div class="absolute inset-6 flex items-end justify-center">
+                            <div class="relative">
+                                <div class="w-16 h-20 bg-gradient-to-br from-gray-900 to-gray-700 rounded-lg mb-2">
+                                    <div class="absolute inset-2 bg-tertiary rounded"></div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-4 h-4 bg-tertiary rounded-full mx-auto mb-1"></div>
+                                    <p class="text-xs text-gray-600">Handheld</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                            <span class="text-sm font-semibold text-tertiary">🚚 Delivery</span>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-poppins font-semibold text-primary mt-4 group-hover:text-tertiary transition-colors">Delivery Hub</h3>
+                    <p class="text-steel text-sm">Mobile solutions for logistics and delivery services</p>
+                </div>
+
+                <!-- Pharmacy -->
+                <div class="relative group">
+                    <div class="w-full h-64 bg-gradient-to-br from-purple-50 to-purple-100 rounded-3xl relative overflow-hidden">
+                        <div class="absolute inset-6 flex items-end justify-center">
+                            <div class="relative">
+                                <div class="w-20 h-16 bg-gradient-to-br from-gray-900 to-gray-700 rounded-lg mb-2">
+                                    <div class="absolute inset-2 bg-purple-500 rounded"></div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-4 h-4 bg-purple-500 rounded-full mx-auto mb-1"></div>
+                                    <p class="text-xs text-gray-600">Secure Terminal</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                            <span class="text-sm font-semibold text-purple-600">💊 Pharmacy</span>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-poppins font-semibold text-primary mt-4 group-hover:text-purple-600 transition-colors">Pharmacy</h3>
+                    <p class="text-steel text-sm">HIPAA-compliant solutions for healthcare retail</p>
+                </div>
+
+                <!-- Salon -->
+                <div class="relative group">
+                    <div class="w-full h-64 bg-gradient-to-br from-pink-50 to-pink-100 rounded-3xl relative overflow-hidden">
+                        <div class="absolute inset-6 flex items-end justify-center">
+                            <div class="relative">
+                                <div class="w-20 h-16 bg-gradient-to-br from-gray-900 to-gray-700 rounded-lg mb-2">
+                                    <div class="absolute inset-2 bg-pink-500 rounded"></div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-4 h-4 bg-pink-500 rounded-full mx-auto mb-1"></div>
+                                    <p class="text-xs text-gray-600">Booking System</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                            <span class="text-sm font-semibold text-pink-600">💇 Salon</span>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-poppins font-semibold text-primary mt-4 group-hover:text-pink-600 transition-colors">Salon & Spa</h3>
+                    <p class="text-steel text-sm">Appointment booking and service management</p>
+                </div>
+
+                <!-- Warehouse -->
+                <div class="relative group">
+                    <div class="w-full h-64 bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl relative overflow-hidden">
+                        <div class="absolute inset-6 flex items-end justify-center">
+                            <div class="relative">
+                                <div class="w-12 h-24 bg-gradient-to-br from-gray-900 to-gray-700 rounded-lg mb-2">
+                                    <div class="absolute inset-2 bg-graphite rounded"></div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-4 h-4 bg-graphite rounded-full mx-auto mb-1"></div>
+                                    <p class="text-xs text-gray-600">Scanner</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                            <span class="text-sm font-semibold text-graphite">📦 Warehouse</span>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-poppins font-semibold text-primary mt-4 group-hover:text-graphite transition-colors">Warehouse</h3>
+                    <p class="text-steel text-sm">Inventory management and fulfillment operations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modular + Scalable Section -->
+    <section class="py-24 industrial-bg relative overflow-hidden">
+        <div class="absolute inset-0 steel-mesh opacity-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 data-aos="fade-up" class="text-4xl sm:text-5xl font-poppins font-bold text-white mb-6">
+                    Hardware That <span class="text-gradient">Grows With You</span>
+                </h2>
+                <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-gray-200 max-w-4xl mx-auto">
+                    Start small. Add more as you scale. From solo stores to national chains.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+                <div class="relative">
+                    <!-- Modular System Visualization -->
+                    <svg class="w-full h-80" viewBox="0 0 800 320">
+                        <defs>
+                            <linearGradient id="moduleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4338CA;stop-opacity:0.8" />
+                                <stop offset="50%" style="stop-color:#F59E0B;stop-opacity:0.8" />
+                                <stop offset="100%" style="stop-color:#10B981;stop-opacity:0.8" />
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Central Hub -->
+                        <circle cx="400" cy="160" r="40" fill="url(#moduleGradient)" opacity="0.9">
+                            <animate attributeName="r" values="38;45;38" dur="4s" repeatCount="indefinite"/>
+                        </circle>
+                        <text x="400" y="165" text-anchor="middle" fill="white" font-size="12" font-weight="bold">CORE</text>
+                        
+                        <!-- Module Connections -->
+                        <g stroke="url(#moduleGradient)" stroke-width="3" fill="none" opacity="0.6">
+                            <path d="M360,160 Q250,120 150,160" stroke-dasharray="15,5">
+                                <animate attributeName="stroke-dashoffset" values="0;-100" dur="3s" repeatCount="indefinite"/>
+                            </path>
+                            <path d="M400,120 Q400,80 400,40" stroke-dasharray="15,5">
+                                <animate attributeName="stroke-dashoffset" values="0;-100" dur="3.5s" repeatCount="indefinite"/>
+                            </path>
+                            <path d="M440,160 Q550,120 650,160" stroke-dasharray="15,5">
+                                <animate attributeName="stroke-dashoffset" values="0;-100" dur="4s" repeatCount="indefinite"/>
+                            </path>
+                            <path d="M400,200 Q400,240 400,280" stroke-dasharray="15,5">
+                                <animate attributeName="stroke-dashoffset" values="0;-100" dur="2.5s" repeatCount="indefinite"/>
+                            </path>
+                        </g>
+                        
+                        <!-- Modules -->
+                        <g>
+                            <!-- Retail Module -->
+                            <circle cx="150" cy="160" r="30" fill="#4338CA" opacity="0.8">
+                                <animate attributeName="r" values="28;35;28" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                            <text x="150" y="165" text-anchor="middle" fill="white" font-size="10" font-weight="bold">🏪</text>
+                            <text x="150" y="200" text-anchor="middle" fill="white" font-size="12" font-weight="600">Bento Retail</text>
+                            
+                            <!-- Food Module -->
+                            <circle cx="400" cy="40" r="30" fill="#F59E0B" opacity="0.8">
+                                <animate attributeName="r" values="28;35;28" dur="3.5s" repeatCount="indefinite"/>
+                            </circle>
+                            <text x="400" y="45" text-anchor="middle" fill="white" font-size="10" font-weight="bold">🍽️</text>
+                            <text x="400" y="20" text-anchor="middle" fill="white" font-size="12" font-weight="600">Bento Food</text>
+                            
+                            <!-- Fleet Module -->
+                            <circle cx="650" cy="160" r="30" fill="#10B981" opacity="0.8">
+                                <animate attributeName="r" values="28;35;28" dur="4s" repeatCount="indefinite"/>
+                            </circle>
+                            <text x="650" y="165" text-anchor="middle" fill="white" font-size="10" font-weight="bold">🚚</text>
+                            <text x="650" y="200" text-anchor="middle" fill="white" font-size="12" font-weight="600">Bento Fleet</text>
+                            
+                            <!-- Expansion Module -->
+                            <circle cx="400" cy="280" r="25" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="2" opacity="0.7">
+                                <animate attributeName="r" values="23;28;23" dur="5s" repeatCount="indefinite"/>
+                            </circle>
+                            <text x="400" y="285" text-anchor="middle" fill="white" font-size="10" font-weight="bold">+</text>
+                            <text x="400" y="305" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10" font-weight="600">Expandable</text>
+                        </g>
+                    </svg>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-store text-accent text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-poppins font-semibold text-white mb-2">Start Simple</h3>
+                        <p class="text-gray-300 text-sm">Single terminal setup for small businesses</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-building text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-poppins font-semibold text-white mb-2">Scale Smart</h3>
+                        <p class="text-gray-300 text-sm">Multi-location management as you grow</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-tertiary/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-network-wired text-tertiary text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-poppins font-semibold text-white mb-2">Enterprise Ready</h3>
+                        <p class="text-gray-300 text-sm">Full ecosystem integration for chains</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="partner" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div data-aos="fade-up">
+                <h2 class="text-4xl sm:text-5xl font-poppins font-bold text-primary mb-6">
+                    Let's Build the Future of <span class="text-gradient">In-Store Commerce</span>
+                </h2>
+                <p class="text-xl text-steel mb-12 max-w-4xl mx-auto">
+                    Request a hardware demo or become a local reseller. Partner with Bento to bring next-generation commerce technology to your market.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="mailto:hardware@bento.it.com" class="bg-gradient-to-r from-accent to-secondary text-white px-8 py-4 rounded-2xl font-bold hover:shadow-lg hover:shadow-accent/30 transition-all transform hover:scale-105 shadow-xl">
+                        <i class="fas fa-cube mr-2"></i>
+                        Get a Hardware Kit
+                    </a>
+                    <a href="mailto:partnerships@bento.it.com" class="border-2 border-accent text-accent px-8 py-4 rounded-2xl font-semibold hover:bg-accent hover:text-white transition-all transform hover:scale-105">
+                        <i class="fas fa-handshake mr-2"></i>
+                        Partner With Us
+                    </a>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="mt-12 flex justify-center items-center space-x-8 opacity-70">
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-accent">99.9%</p>
+                        <p class="text-steel text-sm">Uptime</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-secondary">24/7</p>
+                        <p class="text-steel text-sm">Support</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-tertiary">PCI DSS</p>
+                        <p class="text-steel text-sm">Certified</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo & Description -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center glow-accent">
+                            <i class="fas fa-microchip text-white"></i>
+                        </div>
+                        <span class="ml-3 text-2xl font-poppins font-bold">Bento Hardware</span>
+                    </div>
+                    <p class="text-gray-400 max-w-md">
+                        Professional point-of-sale hardware designed for the connected commerce era. Reliable, secure, and built to scale.
+                    </p>
+                </div>
+
+                <!-- Bento Ecosystem Links -->
+                <div>
+                    <h3 class="text-lg font-poppins font-semibold mb-4">Bento Ecosystem</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-accent transition-colors">Main Platform</a></li>
+                        <li><a href="../b2b/index.html" class="text-gray-400 hover:text-accent transition-colors">B2B Marketplace</a></li>
+                        <li><a href="../logistics/index.html" class="text-gray-400 hover:text-accent transition-colors">Logistics</a></li>
+                        <li><a href="../finance/index.html" class="text-gray-400 hover:text-accent transition-colors">Finance</a></li>
+                        <li><a href="../consumer/index.html" class="text-gray-400 hover:text-accent transition-colors">Consumer App</a></li>
+                    </ul>
+                </div>
+
+                <!-- Connect & Support -->
+                <div>
+                    <h3 class="text-lg font-poppins font-semibold mb-4">Hardware Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="mailto:hardware@bento.it.com" class="text-gray-400 hover:text-accent transition-colors">hardware@bento.it.com</a></li>
+                        <li><a href="mailto:support@bento.it.com" class="text-gray-400 hover:text-accent transition-colors">Technical Support</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition-colors">Partner Portal</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition-colors">Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 Bento Hardware. All rights reserved. Part of the Bento Connected Commerce Ecosystem.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({ duration: 1000, easing: 'ease-in-out', once: true, mirror: false });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) { target.scrollIntoView({ behavior: 'smooth' }); }
+            });
+        });
+    </script>
+</body>
+</html> 
